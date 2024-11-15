@@ -12,7 +12,7 @@ using RiskTrack.Data;
 namespace RiskTrackService.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241115055404_Testing")]
+    [Migration("20241115064005_Testing")]
     partial class Testing
     {
         /// <inheritdoc />

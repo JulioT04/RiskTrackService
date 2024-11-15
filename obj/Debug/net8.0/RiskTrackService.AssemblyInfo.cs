@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RiskTrackService")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0e5eac717ed3303ee1fcec0176d743dca783424a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+54878c278bb88a2f06c698947d6fdfb2750f92fa")]
 [assembly: System.Reflection.AssemblyProductAttribute("RiskTrackService")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RiskTrackService")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
