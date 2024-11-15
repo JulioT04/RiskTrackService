@@ -1,4 +1,6 @@
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.EntityFrameworkCore;
+using Risktrack.Security;
 using RiskTrack.Data;
 using RiskTrack.Util;
 
@@ -21,6 +23,9 @@ builder.Services.AddCors(options =>
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("RiskDBConn")));
 builder.Services.AddScoped<IProviderRepo, ProviderRepo>();
+builder.Services.AddScoped<IUserRepo, UserRepo>();
+builder.Services.AddAuthentication("BasicAuthentication")
+                .AddScheme<AuthenticationSchemeOptions, AuthHandler>("BasicAuthentication", null);
 builder.Services.AddControllers();
 builder.Services.AddTransient<Scraper>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
@@ -38,6 +43,7 @@ if (app.Environment.IsDevelopment())
 app.MapControllers();
 app.UseHttpsRedirection();
 app.UseCors(RiskTrackFE);
+app.UseAuthentication();
 app.UseAuthorization();
 PrepDB.PrepPopulate(app, builder.Environment.IsProduction());  
 app.Run();

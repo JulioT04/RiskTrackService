@@ -1,4 +1,5 @@
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RiskTrack.Data;
 using RiskTrack.DTOs;
@@ -7,6 +8,7 @@ using RiskTrack.Models;
 namespace RiskTrack.Controller {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ProvidersController : ControllerBase{
         private readonly IMapper _mapper;
         private readonly IProviderRepo _repo;
@@ -19,6 +21,17 @@ namespace RiskTrack.Controller {
         public ActionResult<IEnumerable<ProviderReadDTO>> GetProviders(){
             var providers = _repo.GetAllProviders();
              if (providers == null || !providers.Any())
+            {
+                return NotFound();
+            }
+            return Ok(_mapper.Map<IEnumerable<ProviderReadDTO>>(providers));
+        }
+
+        [HttpGet("{id}/providers", Name = "GetProviderByUserId")]
+        public ActionResult<IEnumerable<ProviderReadDTO>> GetProvidersByUserId(int id)
+        {
+            var providers = _repo.GetProvidersByUserId(id);
+            if (providers == null || !providers.Any())
             {
                 return NotFound();
             }
@@ -54,7 +67,7 @@ namespace RiskTrack.Controller {
             }
             _mapper.Map(providerUpdateDTO, providerFromRepo);
             providerFromRepo.LastEditedDate = DateTime.Now;
-            _repo.UpdateProvider(providerFromRepo); // Implementación opcional en el repositorio
+            _repo.UpdateProvider(providerFromRepo); // Implementaciï¿½n opcional en el repositorio
             _repo.SaveChanges();
 
             return NoContent();

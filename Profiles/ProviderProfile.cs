@@ -8,6 +8,8 @@ namespace RiskTrack.Profiles{
         {
             CreateMap<Provider, ProviderReadDTO>();
             CreateMap<ProviderCreateDTO, Provider>();
+            CreateMap<User, UserReadDTO>();
+            CreateMap<UserCreateDTO, User>();
         }
     }
 }

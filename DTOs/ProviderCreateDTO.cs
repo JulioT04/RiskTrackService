@@ -17,7 +17,8 @@ namespace RiskTrack.DTOs{
         [Required]
         public string Country{ get; set; }
         [Required]
-        public decimal AnualRevenue{ get; set; }
-        //public DateTime LastEditedDate{ get; set; }
+        public decimal AnualRevenue { get; set; }
+        [Required]
+        public int UserId { get; set; }
     }
 }

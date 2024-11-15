@@ -149,3 +149,4 @@ C:\Users\julio\RiskTrackService\bin\Debug\net8.0\selenium-manager\windows\seleni
 C:\Users\julio\RiskTrackService\bin\Debug\net8.0\WebDriver.dll
 C:\Users\julio\RiskTrackService\bin\Debug\net8.0\SeleniumExtras.WaitHelpers.dll
 C:\Users\julio\RiskTrackService\bin\Debug\net8.0\WebDriver.Support.dll
+C:\Users\julio\RiskTrackService\obj\Debug\net8.0\RiskTrackService.sourcelink.json

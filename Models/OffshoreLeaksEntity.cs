@@ -3,7 +3,6 @@ using System.Runtime.CompilerServices;
 
 namespace RiskTrack.Models {
     public class OffshoreLeaksEntity {
-        //public int Id { get; set; }
 
         public string Entity { get; set; }
 

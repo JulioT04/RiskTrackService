@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace RiskTrackService.Models
+namespace RiskTrack.Models
 {
     public class User
     {
@@ -13,5 +13,7 @@ namespace RiskTrackService.Models
         public string Email { get; set; }
         [Required]
         public string Password { get; set; }
+
+         public ICollection<Provider> Providers { get; set; } 
     }
 }

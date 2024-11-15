@@ -23,5 +23,9 @@ namespace RiskTrack.Models {
         [Required]
         public decimal AnualRevenue{ get; set; }
         public DateTime LastEditedDate{ get; set; }
+        
+        [Required]
+        public int UserId { get; set; } 
+        public User User { get; set; }
     }
 }

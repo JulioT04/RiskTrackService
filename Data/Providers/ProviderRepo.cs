@@ -35,6 +35,11 @@ namespace RiskTrack.Data{
             return _context.Providers.FirstOrDefault(p=>p.Id==id);
         }
 
+        public IEnumerable<Provider> GetProvidersByUserId(int id)
+        {
+            return _context.Providers.Where(p => p.UserId == id).ToList();
+        }
+
         public bool SaveChanges()
         {
             return _context.SaveChanges()>=0;
