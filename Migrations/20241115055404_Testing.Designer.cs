@@ -12,8 +12,8 @@ using RiskTrack.Data;
 namespace RiskTrackService.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241114233013_AgregarRelacionUsuarioProveedor")]
-    partial class AgregarRelacionUsuarioProveedor
+    [Migration("20241115055404_Testing")]
+    partial class Testing
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -12,6 +12,11 @@ namespace RiskTrack.Data {
         protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
+        modelBuilder.Entity<Provider>()
+        .Property(p => p.AnualRevenue)
+        .HasColumnType("decimal(18,2)");
+
+        base.OnModelCreating(modelBuilder);
 
         modelBuilder.Entity<Provider>()
             .HasOne(p => p.User)

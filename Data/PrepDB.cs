@@ -9,7 +9,7 @@ namespace RiskTrack.Data {
                 SeedData(serviceScope.ServiceProvider.GetService<AppDbContext>(), isProd);
             }
         }
-        private static void SeedData(AppDbContext context, bool isProd){
+       private static void SeedData(AppDbContext context, bool isProd){
             if(isProd){
                 try {
                     context.Database.Migrate();
@@ -33,6 +33,7 @@ namespace RiskTrack.Data {
                     Password = "4321",
                 }
                 );
+                context.SaveChanges();
             }
             else{
                 Console.WriteLine("There's already data");
@@ -49,9 +50,9 @@ namespace RiskTrack.Data {
                     Website = "http://www.peijnenburgholding.nl",
                     Address = "Dam Square 1, 1012 JS Amsterdam, Netherlands",
                     Country = "Netherlands",
-                    AnualRevenue = 1200000.50m,
+                    AnualRevenue = 120000050,
                     LastEditedDate = DateTime.Now,
-                    UserId = 1
+                    UserId = context.Users.First().Id
                 },
                 new Provider
                 {
@@ -62,9 +63,9 @@ namespace RiskTrack.Data {
                     Website = "http://www.advancedtech.com",
                     Address = "123 Silicon Valley, CA 94025, USA",
                     Country = "USA",
-                    AnualRevenue = 2500000.75m,
+                    AnualRevenue = 250000075,
                     LastEditedDate = DateTime.Now,
-                    UserId = 2
+                    UserId = context.Users.First().Id
                 },
                 new Provider
                 {
@@ -75,9 +76,9 @@ namespace RiskTrack.Data {
                     Website = "http://www.nishanengineers.pk",
                     Address = "Mall Road, Lahore, Pakistan",
                     Country = "Pakistan",
-                    AnualRevenue = 800000.25m,
+                    AnualRevenue = 80000025,
                     LastEditedDate = DateTime.Now,
-                    UserId = 1
+                    UserId = context.Users.First().Id
                 },
                 new Provider
                 {
@@ -88,8 +89,9 @@ namespace RiskTrack.Data {
                     Website = "http://www.cairoconsult.com",
                     Address = "Tahrir Square, Cairo, Egypt",
                     Country = "Egypt",
-                    AnualRevenue = 600000.40m,
-                    LastEditedDate = DateTime.Now
+                    AnualRevenue = 60000040,
+                    LastEditedDate = DateTime.Now,
+                    UserId = context.Users.First().Id
                 },
                 new Provider
                 {
@@ -100,9 +102,9 @@ namespace RiskTrack.Data {
                     Website = "http://www.seartower.co.uk",
                     Address = "1 Canada Square, London, UK",
                     Country = "UK",
-                    AnualRevenue = 2200000.90m,
+                    AnualRevenue = 220000090,
                     LastEditedDate = DateTime.Now,
-                    UserId = 2
+                    UserId = context.Users.First().Id
                 },
                 new Provider
                 {
@@ -113,9 +115,9 @@ namespace RiskTrack.Data {
                     Website = "http://www.inter-tech.jp",
                     Address = "Shibuya Crossing, Tokyo, Japan",
                     Country = "Japan",
-                    AnualRevenue = 1700000.35m,
+                    AnualRevenue = 170000035,
                     LastEditedDate = DateTime.Now,
-                    UserId = 1
+                    UserId = context.Users.First().Id
                 },
                 new Provider
                 {
@@ -126,9 +128,9 @@ namespace RiskTrack.Data {
                     Website = "http://www.seatosetrading.com",
                     Address = "Broadway, New York, USA",
                     Country = "USA",
-                    AnualRevenue = 2700000.50m,
+                    AnualRevenue = 270000050,
                     LastEditedDate = DateTime.Now,
-                    UserId = 2
+                    UserId = context.Users.First().Id
                 }
                 );
                 context.SaveChanges();
@@ -137,5 +139,7 @@ namespace RiskTrack.Data {
                 Console.WriteLine("There's already data");
             }
         }
+    
+    
     }
 }
